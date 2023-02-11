@@ -29,7 +29,7 @@ install() {
     return 1
   fi
   PACKAGE_CORE_VERSION=$latest_version
-  log::success "[$(timestamp)][package][$name] latest version: $PACKAGE_CORE_VERSION ."
+  log::success "[$(timestamp)][package][$name] latest version: $PACKAGE_CORE_VERSION"
 
   # reference: https://github.com/go-zoox/gzchatgpt/releases
   # example:
