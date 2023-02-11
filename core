@@ -21,6 +21,16 @@ install() {
   # prepare context
   cd $tmp_dir
 
+  # get latest version
+  log::info "[$(timestamp)][package][$name] checking latest version ..."
+  local latest_version=$(git::get_remote_latest_tag $PACKAGE_CORE_GIT_REPOSITORY)
+  if [ "$?" != "0" ]; then
+    log::error "[$(timestamp)][package][$name] failed to get latest version ."
+    return 1
+  fi
+  PACKAGE_CORE_VERSION=$latest_version
+  log::success "[$(timestamp)][package][$name] latest version: $PACKAGE_CORE_VERSION ."
+
   # reference: https://github.com/go-zoox/gzchatgpt/releases
   # example:
   #   https://github.com/go-zoox/gzchatgpt/releases/download/v0.0.2/gzchatgpt_0.0.2_darwin_amd64.tar.gz
@@ -39,7 +49,7 @@ install() {
   log::info "[$(timestamp)][package][$name] extracting ..."
   os::extract $tmp_file
 
-   # install
+  # install
   log::info "[$(timestamp)][package][$name] installing ..."
   os::install $bin_file $usr_bin_dir
 

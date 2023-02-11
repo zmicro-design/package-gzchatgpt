@@ -1,5 +1,6 @@
 #!/bin/bash
 
 export PACKAGE_CORE_NAME="gzchatgpt"
-export PACKAGE_CORE_VERSION=v0.0.12
-export PACKAGE_CORE_RELEASE_DOWNLOAD="https://github.com/go-zoox/gzchatgpt/releases/download"
+export PACKAGE_CORE_VERSION=v0.0.13
+export PACKAGE_CORE_GIT_REPOSITORY="https://github.com/go-zoox/gzchatgpt"
+export PACKAGE_CORE_RELEASE_DOWNLOAD="${PACKAGE_CORE_GIT_REPOSITORY}/releases/download"
